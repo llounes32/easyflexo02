@@ -1,0 +1,62 @@
+@media print {
+    body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .no-print,
+    .no-print * {
+        display: none !important;
+    }
+
+    @page {
+        size: A4;
+        margin: 1.5cm;
+    }
+
+    html, body {
+        width: 100%;
+        height: auto;
+        background: #fff !important;
+    }
+
+    .print\:static {
+        position: static !important;
+    }
+
+    .print\:shadow-none {
+        box-shadow: none !important;
+    }
+
+    .print\:p-0 {
+        padding: 0 !important;
+    }
+
+    .printable-area {
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .report-header {
+        margin-bottom: 2rem;
+    }
+
+    .break-inside-avoid {
+        break-inside: avoid;
+    }
+
+    /* --- Footer --- */
+    .printable-area::after {
+        content: "Rapport généré par Easy Emballage - Optimiseur de Production";
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 10px;
+        color: #888;
+        width: 100%;
+        text-align: center;
+    }
+}
