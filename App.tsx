@@ -9,6 +9,9 @@ import LaizeCalculator from './components/LaizeCalculator';
 import MachineFilter from './components/MachineFilter';
 import ReportPanel from './components/ReportPanel';
 import LinearMeterageCalculator from './components/LinearMeterageCalculator';
+import './assets/print.css';
+
+const logoUrl = '/logo.png';
 
 export interface LaizeResult {
     poses: number;
@@ -285,24 +288,25 @@ const App: React.FC = () => {
     }
 
     return (
-        <div className="min-h-screen font-sans p-4 sm:p-6 lg:p-8 bg-slate-100">
+        <div className="min-h-screen font-sans p-4 sm:p-6 lg:p-8">
             <main className="max-w-screen-2xl mx-auto">
                 <header className="text-center mb-10">
-                    <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-800 tracking-tight">
+                    <img src={logoUrl} alt="Easy Emballage Logo" className="w-48 h-auto mx-auto mb-4"/>
+                    <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-800 tracking-tight dark:text-white">
                         Easy Emballage
                     </h1>
-                    <p className="text-lg text-slate-600 mt-1">
+                    <p className="text-lg text-slate-600 mt-1 dark:text-slate-400">
                         Optimiseur de Production
                     </p>
                 </header>
                 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                     {/* --- Main Content --- */}
-                    <div className="lg:col-span-8 xl:col-span-9">
-                        <div className="space-y-8">
-                             <div className="bg-white p-6 rounded-2xl shadow-lg">
+                    <div className="lg:col-span-8 xl:col-span-8">
+                        <div className="space-y-6">
+                             <div className="bg-white p-6 rounded-2xl shadow-lg dark:bg-slate-800">
                                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                                    <h2 className="text-2xl font-bold text-slate-800">Calculateurs</h2>
+                                    <h2 className="text-2xl font-bold text-slate-800 dark:text-white">Calculateurs</h2>
                                      <button
                                         onClick={() => setIsManagerVisible(true)}
                                         className="flex items-center gap-2 px-4 py-2 border border-transparent text-sm font-semibold rounded-lg shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all transform hover:scale-105"
@@ -313,9 +317,9 @@ const App: React.FC = () => {
                                  </div>
                             </div>
 
-                            <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
-                                <div className="bg-white p-6 rounded-2xl shadow-lg h-full">
-                                    <h3 className="text-xl font-bold text-slate-800 mb-4">1. Optimiseur de Cylindre</h3>
+                            <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+                                <div className="bg-white p-6 rounded-2xl shadow-lg h-full dark:bg-slate-800">
+                                    <h3 className="text-xl font-bold text-slate-800 mb-4 dark:text-white">1. Optimiseur de Cylindre</h3>
                                     <MachineFilter 
                                         selectedMachine={machineFilter} 
                                         onSelectMachine={handleFilterChange}
@@ -348,7 +352,7 @@ const App: React.FC = () => {
                     </div>
                     
                     {/* --- Report Panel --- */}
-                     <div className="lg:col-span-4 xl:col-span-3">
+                     <div className="lg:col-span-4 xl:col-span-4">
                         <ReportPanel 
                             report={report} 
                             onStudyNameChange={handleStudyNameChange}
