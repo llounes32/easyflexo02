@@ -92,6 +92,7 @@ export const CYLINDER_DATA: Cylinder[] = [
     "dents_B": 128,
     "num_C": "Z128",
     "machines": ["indien"]
+  }
 ];
 
 export const MACHINES = {
