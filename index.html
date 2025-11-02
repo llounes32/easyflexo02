@@ -3,12 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/logo.png" />
     <title>Easy Emballage - Optimiseur de Production</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
   <script type="importmap">
 {
@@ -23,15 +19,13 @@
 }
 </script>
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f1f5f9;
-      transition: background-color 0.3s, color 0.3s;
+    @keyframes color-change {
+      0% { color: #334155; }
+      50% { color: #1e40af; }
+      100% { color: #334155; }
     }
-     @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #0f172a;
-      }
+    .animated-logo {
+      animation: color-change 5s infinite;
     }
   </style>
 <link rel="stylesheet" href="/index.css">
