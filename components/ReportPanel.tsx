@@ -2,8 +2,6 @@ import React from 'react';
 import type { ReportState } from '../App';
 import { MACHINES } from '../constants';
 
-const logoUrl = '/logo.png';
-
 const PrinterIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
         <polyline points="6 9 6 2 18 2 18 9"></polyline>
@@ -38,15 +36,14 @@ const FileTextIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 
 
 const ReportHeader: React.FC<{ studyName: string }> = ({ studyName }) => (
-    <div className="report-header flex items-start justify-between pb-4 border-b border-slate-200">
+    <div className="report-header flex items-start justify-between pb-4 border-b border-gray-200">
         <div className="flex items-center gap-4">
-            <img src={logoUrl} alt="Logo Easy Emballage" className="h-12 w-auto"/>
             <div>
-                <h1 className="text-xl font-bold text-slate-800">Rapport d'Étude de Production</h1>
-                <p className="text-sm text-slate-600 font-medium">{studyName || "Nouvelle Étude"}</p>
+                <h1 className="text-xl font-bold text-gray-800">Rapport d'Étude de Production</h1>
+                <p className="text-sm text-gray-600 font-medium">{studyName || "Nouvelle Étude"}</p>
             </div>
         </div>
-        <p className="text-sm text-slate-500 text-right flex-shrink-0 ml-4">{new Date().toLocaleString('fr-FR', { dateStyle: 'long', timeStyle: 'short' })}</p>
+        <p className="text-sm text-gray-500 text-right flex-shrink-0 ml-4">{new Date().toLocaleString('fr-FR', { dateStyle: 'long', timeStyle: 'short' })}</p>
     </div>
 );
 
@@ -58,7 +55,7 @@ interface SectionHeaderProps {
 const SectionHeader: React.FC<SectionHeaderProps> = ({ icon, title }) => (
     <div className="flex items-center gap-3 mb-4">
         {icon}
-        <h4 className="font-bold text-slate-700 text-lg">{title}</h4>
+        <h4 className="font-bold text-gray-700 text-lg">{title}</h4>
     </div>
 );
 
@@ -80,12 +77,12 @@ const ReportPanel: React.FC<ReportPanelProps> = ({ report, onStudyNameChange }) 
                 
                 {!hasData ? (
                     <>
-                       <div className="flex items-center gap-3 text-xl font-bold text-slate-800 mb-2 border-b-2 border-slate-200 pb-3">
-                           <FileTextIcon className="h-6 w-6 text-slate-500"/>
+                       <div className="flex items-center gap-3 text-xl font-bold text-gray-800 mb-2 border-b-2 border-gray-200 pb-3">
+                           <FileTextIcon className="h-6 w-6 text-gray-500"/>
                            <span>Rapport d'Étude</span>
                         </div>
                        <div className="text-center py-12">
-                            <p className="text-slate-500">Lancez un calcul pour voir le rapport de synthèse ici.</p>
+                            <p className="text-gray-500">Lancez un calcul pour voir le rapport de synthèse ici.</p>
                         </div>
                     </>
                 ) : (
@@ -95,7 +92,7 @@ const ReportPanel: React.FC<ReportPanelProps> = ({ report, onStudyNameChange }) 
                             
                              {/* --- Study Name Input --- */}
                             <div className="no-print">
-                                <label htmlFor="study-name" className="block text-sm font-semibold text-slate-700 mb-2">
+                                <label htmlFor="study-name" className="block text-sm font-semibold text-gray-700 mb-2">
                                   Nom de l'étude
                                 </label>
                                 <input
@@ -104,33 +101,33 @@ const ReportPanel: React.FC<ReportPanelProps> = ({ report, onStudyNameChange }) 
                                   value={inputs.studyName}
                                   onChange={(e) => onStudyNameChange(e.target.value)}
                                   placeholder="Ex: Projet Client ABC"
-                                  className="w-full px-4 py-2.5 border border-slate-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base transition"
+                                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base transition"
                                 />
                             </div>
 
-                            <hr className="border-slate-200 no-print"/>
+                            <hr className="border-gray-200 no-print"/>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                                 {/* --- Section Inputs --- */}
                                 <div className="break-inside-avoid">
-                                    <SectionHeader icon={<SettingsIcon className="h-6 w-6 text-slate-500"/>} title="Paramètres" />
+                                    <SectionHeader icon={<SettingsIcon className="h-6 w-6 text-gray-500"/>} title="Paramètres" />
                                     <div className="space-y-2 text-sm pl-9">
                                         <div className="flex justify-between items-center">
-                                            <span className="text-slate-500">Largeur Étiquette :</span>
-                                            <span className="font-semibold text-slate-800">{inputs.labelWidth ? `${inputs.labelWidth} mm` : '-'}</span>
+                                            <span className="text-gray-500">Largeur Étiquette :</span>
+                                            <span className="font-semibold text-gray-800">{inputs.labelWidth ? `${inputs.labelWidth} mm` : '-'}</span>
                                         </div>
                                         <div className="flex justify-between items-center">
-                                            <span className="text-slate-500">Longueur Étiquette :</span>
-                                            <span className="font-semibold text-slate-800">{inputs.labelLength ? `${inputs.labelLength} mm` : '-'}</span>
+                                            <span className="text-gray-500">Longueur Étiquette :</span>
+                                            <span className="font-semibold text-gray-800">{inputs.labelLength ? `${inputs.labelLength} mm` : '-'}</span>
                                         </div>
                                         <div className="flex justify-between items-center">
-                                            <span className="text-slate-500">Machine :</span>
-                                            <span className="font-semibold text-slate-800">{machineName}</span>
+                                            <span className="text-gray-500">Machine :</span>
+                                            <span className="font-semibold text-gray-800">{machineName}</span>
                                         </div>
                                         {inputs.desiredQuantity && (
                                             <div className="flex justify-between items-center">
-                                                <span className="text-slate-500">Quantité Cible :</span>
-                                                <span className="font-semibold text-slate-800">{parseInt(inputs.desiredQuantity).toLocaleString('fr-FR')} étq.</span>
+                                                <span className="text-gray-500">Quantité Cible :</span>
+                                                <span className="font-semibold text-gray-800">{parseInt(inputs.desiredQuantity).toLocaleString('fr-FR')} étq.</span>
                                             </div>
                                         )}
                                     </div>
@@ -140,38 +137,38 @@ const ReportPanel: React.FC<ReportPanelProps> = ({ report, onStudyNameChange }) 
                                 <div className="break-inside-avoid">
                                     <SectionHeader icon={<CheckCircleIcon className="h-6 w-6 text-teal-600"/>} title="Résultats" />
                                     <div className="space-y-3 text-sm pl-9">
-                                        <div className="p-3 bg-slate-50 rounded-md">
+                                        <div className="p-3 bg-gray-50 rounded-md">
                                             <div className="flex justify-between items-center">
-                                                <span className="text-slate-500">Cylindre :</span>
+                                                <span className="text-gray-500">Cylindre :</span>
                                                 <span className="font-semibold text-blue-600 text-base">{cylinderDetails ? `${cylinderDetails.num_C} (${cylinderDetails.dim_mm_A.toFixed(2)} mm)` : '-'}</span>
                                             </div>
                                             <div className="flex justify-between items-center mt-1">
-                                                <span className="text-slate-500">Poses / Cylindre :</span>
-                                                <span className="font-semibold text-slate-800">{cylinderResult ? `${cylinderResult.etiquettes} poses` : '-'}</span>
+                                                <span className="text-gray-500">Poses / Cylindre :</span>
+                                                <span className="font-semibold text-gray-800">{cylinderResult ? `${cylinderResult.etiquettes} poses` : '-'}</span>
                                             </div>
                                         </div>
-                                    <div className="p-3 bg-slate-50 rounded-md">
+                                    <div className="p-3 bg-gray-50 rounded-md">
                                             <div className="flex justify-between items-center">
-                                                <span className="text-slate-500">Laize :</span>
+                                                <span className="text-gray-500">Laize :</span>
                                                 <span className="font-semibold text-indigo-600 text-base">{laizeResult ? `${laizeResult.laize} mm` : '-'}</span>
                                             </div>
                                             <div className="flex justify-between items-center mt-1">
-                                                <span className="text-slate-500">Poses / Laize :</span>
-                                                <span className="font-semibold text-slate-800">{laizeResult ? `${laizeResult.poses} poses` : '-'}</span>
+                                                <span className="text-gray-500">Poses / Laize :</span>
+                                                <span className="font-semibold text-gray-800">{laizeResult ? `${laizeResult.poses} poses` : '-'}</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             
-                            <hr className="border-slate-200"/>
+                            <hr className="border-gray-200"/>
 
                             {/* --- Totals & Meterage --- */}
                              <div className="space-y-3">
                                 {totalPoses !== null && (
                                     <div className="p-3 bg-blue-50 border-l-4 border-blue-500 rounded-r-md">
                                         <div className="flex justify-between items-center">
-                                            <span className="text-slate-600 font-semibold">Total par Tour de Cylindre :</span>
+                                            <span className="text-gray-600 font-semibold">Total par Tour de Cylindre :</span>
                                             <span className="font-extrabold text-blue-700 text-xl">{totalPoses} étiquettes</span>
                                         </div>
                                         <div className="text-right text-xs text-blue-600 font-medium">
@@ -182,7 +179,7 @@ const ReportPanel: React.FC<ReportPanelProps> = ({ report, onStudyNameChange }) 
                                 {meterageResult !== null && (
                                     <div className="p-3 bg-teal-50 border-l-4 border-teal-500 rounded-r-md">
                                         <div className="flex justify-between items-center">
-                                            <span className="text-slate-600 font-semibold">Métrage Linéaire Requis :</span>
+                                            <span className="text-gray-600 font-semibold">Métrage Linéaire Requis :</span>
                                             <span className="font-extrabold text-teal-700 text-xl">{meterageResult.toLocaleString('fr-FR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} m</span>
                                         </div>
                                     </div>
@@ -192,17 +189,17 @@ const ReportPanel: React.FC<ReportPanelProps> = ({ report, onStudyNameChange }) 
 
                             {/* --- Section Conclusion --- */}
                             <div className="break-inside-avoid">
-                                <SectionHeader icon={<FileTextIcon className="h-6 w-6 text-slate-500"/>} title="Conclusion" />
-                                <p className="text-sm text-slate-600 bg-slate-100 p-4 rounded-lg pl-12">
-                                    La configuration recommandée est le cylindre <strong className="text-slate-800">{cylinderDetails?.num_C || 'N/A'}</strong> et une laize de <strong className="text-slate-800">{laizeResult?.laize || 'N/A'} mm</strong>.
+                                <SectionHeader icon={<FileTextIcon className="h-6 w-6 text-gray-500"/>} title="Conclusion" />
+                                <p className="text-sm text-gray-600 bg-gray-100 p-4 rounded-lg pl-12">
+                                    La configuration recommandée est le cylindre <strong className="text-gray-800">{cylinderDetails?.num_C || 'N/A'}</strong> et une laize de <strong className="text-gray-800">{laizeResult?.laize || 'N/A'} mm</strong>.
                                     {totalPoses !== null && (
                                         <span className="block mt-2 font-semibold">
-                                            Cela permet de produire <strong className="text-slate-800">{totalPoses} étiquettes</strong> par tour de cylindre.
+                                            Cela permet de produire <strong className="text-gray-800">{totalPoses} étiquettes</strong> par tour de cylindre.
                                         </span>
                                     )}
                                     {meterageResult !== null && inputs.desiredQuantity && (
                                         <span className="block mt-2 font-semibold">
-                                            Pour produire <strong className="text-slate-800">{parseInt(inputs.desiredQuantity).toLocaleString('fr-FR')} étiquettes</strong>, il faudra <strong className="text-slate-800">{meterageResult.toLocaleString('fr-FR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} mètres</strong> de matière.
+                                            Pour produire <strong className="text-gray-800">{parseInt(inputs.desiredQuantity).toLocaleString('fr-FR')} étiquettes</strong>, il faudra <strong className="text-gray-800">{meterageResult.toLocaleString('fr-FR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} mètres</strong> de matière.
                                         </span>
                                     )}
                                 </p>
@@ -211,10 +208,10 @@ const ReportPanel: React.FC<ReportPanelProps> = ({ report, onStudyNameChange }) 
                     </div>
                 )}
                 {hasData && (
-                    <div className="mt-6 pt-4 border-t border-slate-200 no-print">
+                    <div className="mt-6 pt-4 border-t border-gray-200 no-print">
                         <button
                             onClick={() => window.print()}
-                            className="w-full flex items-center justify-center gap-2 px-6 py-3 border border-transparent text-base font-semibold rounded-lg shadow-sm text-white bg-slate-700 hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500 transition-all"
+                            className="w-full flex items-center justify-center gap-2 px-6 py-3 border border-transparent text-base font-semibold rounded-lg shadow-sm text-white bg-gray-700 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all"
                         >
                             <PrinterIcon className="h-5 w-5"/>
                             Imprimer ou Exporter en PDF
