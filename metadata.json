@@ -1,0 +1,5 @@
+{
+  "name": "Copy of Flexo Cylinder Optimizer",
+  "description": "An application to calculate the optimal flexo printing cylinder to minimize waste based on label width. It provides detailed calculations for all available cylinders and highlights the most efficient option.",
+  "requestFramePermissions": []
+}
